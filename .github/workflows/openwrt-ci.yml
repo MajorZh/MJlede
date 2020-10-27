@@ -5,7 +5,7 @@
 #
 # Copyright (C) 2020 KFERMercer
 #
-name: OpenWrt-CI
+name: MJlede
 
 on:
   schedule:
@@ -51,6 +51,7 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
+        # 暂时不做任何定制，下次在这里增加定制部分
         run: make defconfig
 
       - name: Make download
