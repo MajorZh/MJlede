@@ -7,7 +7,7 @@ MJlede
 
 
 
-====↓↓↓大神源码仓库↓↓↓↓=========================
+====↓↓↓大神源码仓库：[地址](https://github.com/coolsnowwolf/lede)"Lean"===============
 =
 欢迎来到Lean的Openwrt源码仓库！
 =
