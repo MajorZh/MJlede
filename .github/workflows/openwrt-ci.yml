@@ -58,11 +58,12 @@ jobs:
           rm -f ./.config*
           touch ./.config
           
-          # 定制固件大小
+          # 定制固件大小+固件压缩
           cat >> .config <<EOF
           CONFIG_TARGET_KERNEL_PARTSIZE=16
           CONFIG_TARGET_ROOTFS_PARTSIZE=800
           CONFIG_TARGET_ROOTFS_PARTNAME=""
+          CONFIG_TARGET_IMAGES_GZIP=y
           EOF
           
           sed -i 's/^[ \t]*//g' ./.config
