@@ -54,8 +54,19 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        # 暂时不做任何定制，下次在这里增加定制部分
-        run: make defconfig
+        run: |
+          rm -f ./.config*
+          touch ./.config
+          
+          # 定制固件大小
+          cat >> .config <<EOF
+          CONFIG_TARGET_KERNEL_PARTSIZE=16
+          CONFIG_TARGET_ROOTFS_PARTSIZE=800
+          CONFIG_TARGET_ROOTFS_PARTNAME=""
+          EOF
+          
+          sed -i 's/^[ \t]*//g' ./.config
+          make defconfig
 
       - name: Make download
         run: |
